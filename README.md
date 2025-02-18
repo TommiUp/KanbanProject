@@ -1,4 +1,4 @@
-Kanban Project
+**Kanban Project**
 
 **Installation guidelines**
 1. Clone the project repository to your local machine using Git.
