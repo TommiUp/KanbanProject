@@ -414,6 +414,13 @@ nav,
         margin: 0 auto;
     }
 
+    /* Button adjustments for smaller screens */
+    #addColumnBtn {
+        font-size: 14px;
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+
     /* Modal adjustments for smaller screens */
     .modal {
         width: 90% !important;
