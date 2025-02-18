@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <nav>
+        <div class="nav-wrapper blue">
+            <div class="left nav-left">
+                <a href="#" class="brand-logo" data-i18n="mainTitle">Kanban Board</a>
+                <div style="margin-left: 20px;">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="fi">Suomi</option>
+                        <option value="sv">Svenska</option>
+                    </select>
+                </div>
+            </div>
+            <ul class="right" style="margin-right: 20px;">
+                <li id="loginForm" style="display: flex; align-items: center;">
+                    <div class="input-field" style="margin-right: 10px;">
+                        <input id="emailInput" type="text" placeholder="Email" data-i18n-placeholder="email" />
+                    </div>
+                    <div class="input-field" style="margin-right: 10px;">
+                        <input id="passwordInput" type="password" placeholder="Password"
+                            data-i18n-placeholder="password" />
+                    </div>
+                    <button id="loginBtn" class="btn blue" style="margin-right: 10px;" data-i18n="login">Login</button>
+                    <a href="register.html" id="registerBtn" class="btn green" data-i18n="register">Register</a>
+                </li>
+                <li id="userAvatarLi" style="display: none; margin-right: 10px;">
+                    <img id="userAvatarImg" src="" alt="avatar"
+                        style="width:40px; height:40px; border-radius:50%; margin-right:5px;" />
+                    <span id="userNameSpan" style="color:white; font-weight:500;"></span>
+                </li>
+                <li>
+                    <button id="logoutBtn" class="btn red" style="display: none;" data-i18n="logout">Logout</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="welcome" class="container" style="margin-top: 50px;">
+        <div class="center-align">
+            <div class="card-panel">
+                <h4 data-i18n="welcome">Welcome to Kanban Board</h4>
+                <p data-i18n="welcomeDesc">Login or register to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="boardContainer" class="container" style="display: none; margin-top: 30px;">
+        <div class="row" style="display: flex; align-items: center;">
+            <button id="addColumnBtn" class="btn teal darken-1" style="margin-right: 20px;" data-i18n="addNewColumn">
+                ADD NEW COLUMN
+            </button>
+            <div class="input-field" style="max-width: 300px;">
+                <input id="searchInput" type="text" placeholder="Search cards..." data-i18n-placeholder="searchCards" />
+            </div>
+        </div>
+
+        <div id="columns" class="row">
+        </div>
+    </div>
+
+    <div id="addColumnModal" class="modal">
+        <div class="modal-content">
+            <h4 data-i18n="newColumn">New column</h4>
+            <div class="input-field">
+                <input id="columnNameInput" type="text" />
+                <label for="columnNameInput" data-i18n="columnName">Column name</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="saveColumnBtn" class="btn green" data-i18n="addNewColumn">Add new column</button>
+            <button class="modal-close btn grey" data-i18n="back">Back</button>
+        </div>
+    </div>
+
+    <div id="addCardModal" class="modal">
+        <div class="modal-content">
+            <h4 data-i18n="newCard">New card</h4>
+
+            <div class="input-field">
+                <input id="cardTitleInput" type="text" />
+                <label for="cardTitleInput" data-i18n="title">Title</label>
+            </div>
+
+            <div class="input-field">
+                <textarea id="cardContentInput" class="materialize-textarea"></textarea>
+                <label for="cardContentInput" data-i18n="description">Description</label>
+            </div>
+
+            <div class="input-field">
+                <select id="cardColorSelect">
+                    <option value="#ffffff" selected data-i18n="colorWhite">White (default)</option>
+                    <option value="#007bff" data-i18n="colorPrimary">Primary (blue)</option>
+                    <option value="#6c757d" data-i18n="colorSecondary">Secondary (gray)</option>
+                    <option value="#28a745" data-i18n="colorSuccess">Success (green)</option>
+                    <option value="#eb6060" data-i18n="colorDanger">Danger (red)</option>
+                    <option value="#ffc107" data-i18n="colorWarning">Warning (yellow)</option>
+                    <option value="#17a2b8" data-i18n="colorInfo">Info (cyan)</option>
+                </select>
+                <label data-i18n="selectColor">Select a color</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="saveCardBtn" class="btn green" data-i18n="saveCard">Add new card</button>
+            <button class="modal-close btn grey" data-i18n="cancelCard">Back</button>
+        </div>
+    </div>
+
+    <div id="commentsModal" class="modal">
+        <div class="modal-content">
+            <h4 data-i18n="comments">Comments</h4>
+            <div id="commentsList"><!-- comments go here --></div>
+            <div class="input-field">
+                <textarea id="newCommentText" class="materialize-textarea"></textarea>
+                <label for="newCommentText" data-i18n="newComment">New comment</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="addCommentBtn" class="btn green" data-i18n="addComment">Add Comment</button>
+            <button class="modal-close btn grey" data-i18n="closeComment">Back</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>

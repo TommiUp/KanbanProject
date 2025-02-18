@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div id="notificationContainer" class="notification-container"></div>
+
+    <nav>
+        <div class="nav-wrapper blue">
+            <div class="left nav-left" style="margin-left: 20px;">
+                <a href="/" class="brand-logo" data-i18n="mainTitle">Kanban Board</a>
+                <div class="language-container" style="margin-left: 20px;">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="fi">Suomi</option>
+                        <option value="sv">Svenska</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4 class="center-align" style="margin-top: 40px;" data-i18n="register">Register</h4>
+
+        <form id="registerForm" enctype="multipart/form-data">
+            <div class="input-field">
+                <input id="username" name="username" type="text" class="validate" required />
+                <label for="username" data-i18n="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input id="email" name="email" type="email" class="validate" required />
+                <label for="email" data-i18n="email">Email</label>
+            </div>
+            <div class="input-field">
+                <input id="password" name="password" type="password" class="validate" required />
+                <label for="password" data-i18n="password">Password</label>
+            </div>
+
+            <p>
+                <label>
+                    <input id="isAdmin" name="isAdmin" type="checkbox" />
+                    <span data-i18n="admin">Register as admin</span>
+                </label>
+            </p>
+
+            <div class="file-field input-field">
+                <div class="btn teal lighten-1">
+                    <span data-i18n="avatar">Choose Avatar</span>
+                    <input type="file" name="avatarFile" accept="image/*" />
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Your avatar file"
+                        data-i18n-placeholder="avatarFile" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn waves-effect waves-light blue darken-3" data-i18n="register">
+                Register
+            </button>
+        </form>
+
+        <div class="center-align" style="margin-top: 20px;">
+            <a href="index.html" class="btn waves-effect waves-light grey darken-1" data-i18n="backHome">
+                Back to homepage
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/register.js"></script>
+</body>
+
+</html>

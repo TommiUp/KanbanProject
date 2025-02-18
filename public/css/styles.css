@@ -1,0 +1,436 @@
+/* GLOBAL STYLES: Set base font, margins, padding, and prevent horizontal overflow */
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* FORM STYLES: Registration form spacing */
+#registerForm .input-field {
+    margin-bottom: 0.5rem;
+}
+
+form#registerForm .file-field.input-field {
+    margin-bottom: 0.5rem;
+}
+
+/* USER STYLES: User name placement */
+#userNameSpan {
+    margin-top: 0;
+    line-height: 2.5;
+}
+
+/* TOUCH & DRAG: Disable default touch actions for drag & drop */
+.columnWrapper,
+.cardItem {
+    touch-action: none;
+}
+
+/* TOUCH & DRAG: Visual feedback when an element is being dragged */
+.touch-dragging {
+    opacity: 0.8;
+}
+
+/* CONTAINER: Center container content */
+.container {
+    margin: 50px auto;
+    text-align: center;
+}
+
+/* NAVIGATION: Styles for the navigation bar container */
+.nav-wrapper {
+    background-color: #00796b;
+    padding: 0 20px;
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* NAVIGATION: Branding logo styling within the navbar */
+.brand-logo {
+    position: relative !important;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 64px;
+}
+
+/* NAVIGATION: Style for the left side of the navbar */
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+/* NAVIGATION: Margin for the language selector container */
+.language-container {
+    margin-left: 20px;
+}
+
+/* FORM STYLES: Style for submit buttons to center content and set a fixed height */
+button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+}
+
+/* BOARD LAYOUT: Layout for board columns and cards */
+#columns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* BOARD LAYOUT: Each column (stack) has a fixed width and vertical gap */
+.stack {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* CARD STYLES: Card container uses flexbox for vertical layout and fills available height */
+.card {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    height: auto;
+}
+
+/* CARD STYLES: Card content is positioned relative for absolute children and wraps text */
+.card-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* CARD BUTTONS: Styling for the delete button on cards */
+.delete-card-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+    background-color: rgba(195, 34, 22, 0.893);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* CARD BUTTONS: Hover state for the delete button */
+.delete-card-btn:hover {
+    background-color: rgba(195, 34, 22, 0.893);
+}
+
+/* DROP ZONE: Basic styling for card drop zones */
+.cardColumnDropZone {
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    min-height: 170px;
+    border: 1px dashed transparent;
+    margin-top: 0;
+}
+
+.cardColumnDropZone:hover {
+    border-color: #aaa;
+}
+
+/* MODALS & FORMS: Modal container styling */
+.modal {
+    max-width: 500px;
+}
+
+/* MODALS & FORMS: Form layout inside container */
+.container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* MODALS & FORMS: Input field styling within forms */
+.container form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* MODALS & FORMS: Button styling within forms */
+.container form button {
+    padding: 10px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* MODALS & FORMS: Hover state for form buttons */
+.container form button:hover {
+    background-color: #004d40;
+}
+
+/* NOTIFICATIONS: Styling for notification container */
+.notification-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 320px;
+    z-index: 9999;
+}
+
+/* NOTIFICATIONS: Base styling for notifications */
+.notification {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* NOTIFICATIONS: Success message style */
+.notification.success {
+    background-color: #4CAF50;
+}
+
+/* NOTIFICATIONS: Error message style */
+.notification.error {
+    background-color: #F44336;
+}
+
+/* NOTIFICATIONS: Info message style */
+.notification.info {
+    background-color: #4CAF50;
+}
+
+/* NOTIFICATIONS: Warning message style */
+.notification.warning {
+    background-color: #FFC107;
+}
+
+/* NOTIFICATIONS: Visible state for notifications */
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* NOTIFICATIONS: Hidden state for notifications */
+.notification.hide {
+    opacity: 0;
+    transform: translateX(-100%);
+}
+
+/* NAVIGATION: Ensure the navbar adapts its height to content */
+nav,
+.nav-wrapper {
+    height: auto !important;
+    min-height: auto !important;
+    line-height: normal !important;
+    box-sizing: border-box;
+}
+
+/* NAVIGATION: Padding adjustments for the navbar */
+.nav-wrapper {
+    padding: 10px 20px;
+}
+
+/* TEXT SELECTION: Prevent text selection on the board and its children */
+#columns,
+#columns * {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* DRAG HANDLES: Style the drag handles and align them to the left */
+.drag-handle-column,
+.drag-handle-card {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    cursor: grab;
+    font-size: 18px;
+}
+
+/* DRAG HANDLES: Visual cue while dragging the handle */
+.drag-handle-column:active,
+.drag-handle-card:active {
+    cursor: grabbing;
+}
+
+/* ==========================================================================
+   DESKTOP STYLES (min-width: 1001px)
+   ========================================================================== */
+@media only screen and (min-width: 1001px) {
+
+    /* Board layout: horizontal stacking with scrolling */
+    #columns {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        min-height: 600px;
+        width: 80vw;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 15px;
+    }
+
+    /* Column wrapper: fixed width and vertical stretching */
+    .columnWrapper {
+        flex: 0 0 auto;
+        width: 220px !important;
+        box-sizing: border-box;
+        margin: 0;
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Card drop zones: tall empty state with flex growth */
+    .cardColumnDropZone {
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 10px;
+        min-height: 500px;
+        border: 1px dashed transparent;
+        margin-top: 0;
+        flex-grow: 1;
+    }
+
+    .cardColumnDropZone:hover {
+        border-color: #aaa;
+    }
+
+    /* Cards: reduced width and internal padding adjustments */
+    .card.cardItem {
+        max-width: 200px;
+        margin: 8px auto;
+    }
+
+    .card.cardItem .card-content {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    /* Container: styling for the default container class */
+    #boardContainer {
+        margin: 15px;
+        max-width: 100%;
+        padding: 15px 15px 15px 120px;
+    }
+}
+
+/* ==========================================================================
+   MOBILE STYLES (max-width: 1000px)
+   ========================================================================== */
+@media only screen and (max-width: 1000px) {
+
+    /* Enable vertical touch actions on columns and cards */
+    .columnWrapper,
+    .cardItem {
+        touch-action: pan-y;
+    }
+
+    /* Navbar: stack elements vertically */
+    .nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 15px;
+    }
+
+    /* Login form adjustments */
+    #loginForm {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0;
+        padding: 0;
+    }
+
+    #loginForm .input-field,
+    #loginForm button,
+    #loginForm a {
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Navbar right items: full width */
+    .nav-wrapper ul.right {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-wrapper ul.right li {
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Board layout: vertical stacking and scrolling */
+    #columns {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    .columnWrapper {
+        margin: 0 auto;
+    }
+
+    /* Stack adjustments for mobile */
+    .stack {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    /* Modal adjustments for smaller screens */
+    .modal {
+        width: 90% !important;
+        max-width: 90% !important;
+        height: auto;
+        overflow-y: auto;
+        margin: 20px auto;
+    }
+
+    /* Cards: reduced width and internal padding adjustments */
+    .card.cardItem {
+        max-width: 200px;
+        margin: 8px auto;
+    }
+
+    .card.cardItem .card-content {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
